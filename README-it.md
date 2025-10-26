@@ -2,6 +2,11 @@
 
 [![en](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
 
+## Online dashboard
+La dashboard è anche disponibile al seguente link:
+**https://data-playground.streamlit.app/**
+
+## Informazioni
 **Strumento interattivo per l'esplorazione e la trasformazione dei dati costruito con Streamlit.**
 
 Questa dashboard permette di caricare dataset, esplorarli in modo interattivo e applicare comuni operazioni della libreria Pandas per la pulizia e la trasformazione dei dati.  
