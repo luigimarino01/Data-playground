@@ -1,8 +1,9 @@
 import streamlit as st
 from modules.extractor import read_csv, read_excel, read_json
-from modules.transformer import drop_nulls, drop_duplicated
+from modules.transformer import drop_nulls, drop_duplicated, fill_missing
 import io
 import os
+import pandas as pd
 SAMPLE_PATH = "sample_dataset/"
 
 
@@ -105,9 +106,10 @@ if df is not None and not df.empty:
     # ------ DATASET SHOWING OPTION: END ------ #
 
 
-    # ------ DATA TRANSFORMS: START ------ #
+# ------ DATA TRANSFORMS: START ------ #
     st.subheader("Transform your data")
 
+    # Existing operations
     operations = {
         "Drop nulls": {
             "func": drop_nulls,
@@ -138,7 +140,36 @@ if df is not None and not df.empty:
         if apply_op:
             df = op_info["func"](df)
             st.success(f"{op_name} applied. Dataset shape: {df.shape}")
+
+    st.subheader("Fill missing values")
+    if df is not None and not df.empty:
+        column_fill = st.selectbox("Select column to fill missing values", df.columns, key="fill_col")
+
+        if pd.api.types.is_numeric_dtype(df[column_fill]):
+            method_options = ["Fixed value", "Mean", "Median", "Mode"]
+        else:
+            method_options = ["Fixed value", "Mode"]
+
+        method_fill = st.selectbox("Choose method", method_options, key="fill_method")
+
+        fixed_value = None
+        if method_fill == "Fixed value":
+            fixed_value = st.text_input("Enter value to fill", key="fill_value")
+
+        show_fill_code = st.checkbox("Show Code", key="show_fill_code")
+        if show_fill_code:
+            code_snippet = f"df['{column_fill}'].fillna({{'Fixed value': {fixed_value}, 'Mean': df['{column_fill}'].mean(), 'Median': df['{column_fill}'].median(), 'Mode': df['{column_fill}'].mode()[0]}}['{method_fill}'], inplace=True)"
+            st.code(code_snippet, language="python")
+
+        if st.button("Apply Fill Missing"):
+            try:
+                df = fill_missing(df, column_fill, method_fill, fixed_value)
+                st.success(f"Missing values in column '{column_fill}' filled using '{method_fill}'")
+                st.dataframe(df)
+            except Exception as e:
+                st.error(f"Error: {e}")
     # ------ DATA TRANSFORMS: END ------ #
+
 
 
 
