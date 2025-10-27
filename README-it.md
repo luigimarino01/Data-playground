@@ -31,10 +31,18 @@ Questa dashboard permette di caricare dataset, esplorarli in modo interattivo e 
   - Forma, righe, colonne
   - Valori mancanti per colonna
   - Riepilogo delle colonne numeriche
-- Esporta il dataset trasformato in `data/processed/exported_data.csv`.
+- Scarica il dataset nel formato che preferisci (`.CSV`, `JSON`, `XLSX`)
+
+
+![transforms_image](img/transformations.png)
+> Uno screenshot raffigurante due delle trasformazioni disponibili, accanto, per ognuna di esse, è possibile visionare il codice Python corrispondente.
 
 ---
+## Dataset di default
 
+All'interno della repository ci sono dei dataset di default sui quali è possibile effettuare delle prove, per aggiungere altri dataset nella lista di quelli di default basta inserire un nuovo file all'interno della cartella `sample_dataset/` e in automatico verrà visionato tra quelli disponibili.
+
+---
 ## Installazione
 
 1. Clona il repository:
@@ -49,7 +57,7 @@ pip install -r requirements.txt
 
 ---
 
-## Utilizzo
+## Utilizzo in locale
 Avvia l'applicazione Streamlit:
 ```bash
 streamlit run app.py

@@ -31,7 +31,16 @@ This project allows you to upload datasets, explore them interactively, and appl
   - Shape, rows, columns
   - Missing values per column
   - Numeric columns summary
-- Export transformed dataset to `data/processed/exported_data.csv`.
+- Download transformed dataset in your preferred format (`.CSV`, `JSON`, `XLSX`)
+
+![transforms_image](img/transformations.png)
+> A screenshot showing two of the available transformations, next to which the corresponding Python code for each can be viewed.
+
+---
+
+## Default dataset
+Inside the repository, there are default datasets on which you can run tests. To add more datasets to the list of defaults, simply place a new file inside the `sample_dataset/` folder, and it will automatically appear among the available ones.
+
 
 ---
 
@@ -49,7 +58,7 @@ pip install -r requirements.txt
 
 ---
 
-## Usage
+## Local usage
 Run the Streamlit app:
 ```bash
 streamlit run app.py
