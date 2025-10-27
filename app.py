@@ -107,7 +107,7 @@ if df is not None and not df.empty:
 
 
 # ------ DATA TRANSFORMS: START ------ #
-    st.subheader("Transform your data")
+    st.header("Transform your data")
 
     # Existing operations
     operations = {
