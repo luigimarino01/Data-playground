@@ -1,6 +1,8 @@
 import streamlit as st
 from modules.extractor import read_csv, read_excel, read_json
 from modules.transformer import drop_nulls, drop_duplicated
+import io
+
 
 
 
@@ -85,9 +87,16 @@ if uploaded_file:
     st.sidebar.write(df.describe())
 
     st.subheader("Export your transformed dataset")
-    if st.button("Export dataset to CSV"):
-        df.to_csv("data/processed/exported_data.csv", index=False)
-        st.success("Dataset exported to data/processed/exported_data.csv")
+
+    csv_buffer = io.StringIO()
+    df.to_csv(csv_buffer, index=False)
+
+    st.download_button(
+        label="📥 Download CSV",
+        data=csv_buffer.getvalue(),
+        file_name="exported_data.csv",
+        mime="text/csv"
+    )
 
 
     st.markdown("---")  
