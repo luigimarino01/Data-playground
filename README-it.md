@@ -2,6 +2,18 @@
 
 [![en](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
 
+## Table of Contents
+- [Online dashboard](#online-dashboard)
+- [Informazioni](#informazioni)
+- [Dashboard](#dashboard)
+- [Funzionalità](#funzionalità)
+- [Dataset di default](#dataset-di-default)
+- [Installazione](#installazione)
+- [Utilizzo in locale](#utilizzo-in-locale)
+- [Contribuire](#contribuire)
+- [Autore](#autore)
+- [Licenza](#licenza)
+
 ## Online dashboard
 La dashboard è anche disponibile al seguente link:
 **https://data-playground.streamlit.app/**
