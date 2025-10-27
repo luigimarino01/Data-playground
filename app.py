@@ -2,8 +2,6 @@ import streamlit as st
 from modules.extractor import read_csv, read_excel, read_json
 from modules.transformer import drop_nulls, drop_duplicated
 import io
-import seaborn as sns
-import pandas as pd
 import os
 SAMPLE_PATH = "sample_dataset/"
 
