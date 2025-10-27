@@ -39,6 +39,7 @@ Questa dashboard permette di caricare dataset, esplorarli in modo interattivo e 
 - Trasforma i tuoi dati in modo interattivo:
   - Rimuovi i valori nulli
   - Rimuovi le righe duplicate
+  - Riempi i valori vuoti con diverse opzioni (valore fissato, media, mediana, moda)
 - Riepilogo del dataset nella barra laterale:
   - Forma, righe, colonne
   - Valori mancanti per colonna

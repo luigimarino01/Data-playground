@@ -40,6 +40,7 @@ This project allows you to upload datasets, explore them interactively, and appl
 - Transform your data interactively:
   - Drop null values
   - Drop duplicate rows
+  - Fill null values with different options (fixed value, mean, median, mode)
 - Sidebar summary of dataset:
   - Shape, rows, columns
   - Missing values per column
